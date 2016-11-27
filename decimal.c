@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <limits.h>
+
 
 /**
  * conversion_di - checks validity of d and i
@@ -17,58 +17,37 @@ int conversion_di(char *s)
 }
 
 /**
- * _itoa - transforms a number into a string
+ * _itoa - transforms a number into a string, fills buffer
  * @n: an int
- * Return: a string
+ * @buf: a pointer to the buf structure
  */
-char *_itoa(int n)
+void _itoa(int n, buf_type *buf)
 {
-	int l, tens, i, min;
 	char *number;
 
-	l = 2;
-	min = 1;
+	if (n < 0)
+		fill_char_buffer(buf, '-');
 	if (n >= 0)
-	{
-		l = l - 1;
-		min = 0;
 		n = -n;
-	}
-	tens = n;
-	while (tens < -9)
-	{
-		tens /= 10;
-		l = l + 1;
-	}
-	number = malloc((l + 1) * sizeof(char));
-	i = l - 1;
-	number[l] = '\0';
-	do {
-		number[i] = -(n % 10) + '0';
-		n /= 10;
-		--i;
-	} while (i >= 0 && n < 0);
 
-	if (i == 0 && min)
-		number[0] = '-';
-
-	return (number);
+	number = base_conv((unsigned int) -1 * n, 10, "0123456789");
+	fill_buffer(buf, number, _strlen(number));
+	free(number);
 }
 
 /**
  * make_decimal - creates formatted output
  * @s: format string
  * @vl: arguement to format
+ * @buf: a pointer to the buf structure
  * Return: formatted string;
  */
 
-char *make_decimal(char *s, va_list vl)
+void make_decimal(char *s, va_list vl, buf_type *buf)
 {
-	char *number;
 	int n;
 	(void) s;
 
 	n = va_arg(vl, int);
-	number = _itoa(n);
-	return (number);
+	_itoa(n, buf);
 }

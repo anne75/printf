@@ -8,23 +8,25 @@
  * Return: a pointer to function given formatter
  */
 
-char *(*get_mstring_func(char c))(char *, va_list)
+void (*get_mstring_func(char c))(char *, va_list, buf_type *)
 {
 	m_string v[] = {
 		{'c', make_char},
 		{'s', make_string},
+		{'%', make_percent},
 		{'d', make_decimal},
 		{'i', make_decimal},
 		{'u', make_unsigned},
 		{'x', make_hex},
 		{'X', make_heX},
 		{'b', make_binary},
-		{'o', make_octal}
+		{'o', make_octal},
+		{'S', make_S}
 	};
 	int i;
 
 	i = 0;
-	while (i < 9)
+	while (i < 11)
 	{
 		if (c == v[i].type)
 			return (v[i].make_s);

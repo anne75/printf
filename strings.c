@@ -9,60 +9,28 @@
  * make_string - creates formatted string
  * @s: format
  * @vl: argument
+ * @buf: pointer to buf_type
  * Return: formatted string
  */
-
-char *make_string(char *s, va_list vl)
+void make_string(char *s, va_list vl, buf_type *buf)
 {
-	int p, w, slen, mlen, flen, j, k;
-	char *result, *string;
+	char *result;
+	(void) s;
 
-	slen = mlen = j = k = 0;
-	string = va_arg(vl, char *);
-	if (string == NULL)
-		exit(98);
-	p = give_precision(s, 's');
-	w = give_width(s, 's');
-	slen = _strlen(string);
-	flen = _strlen(s);
-	/* determine malloc len */
-	if (w > p && w != 0 && p != -1)
-		mlen = w;
-	else if (p > w && p != 0)
-		mlen = p;
-	else
-		mlen = slen;
-	result = malloc(sizeof(char) * (mlen + 1));
-	result = get_result(result, string, p, w, slen, flen, mlen);
-	return (result);
+	result = va_arg(vl, char *);
+	if (result == NULL)
+		result = "(null)";
+	fill_buffer(buf, result, _strlen(result));
 }
-
 
 /*for strings*/
 /**
  * conversion_string - check if format is right
- * @s: formatting string for chars
- * Return: 1 if it is 0 otherwise, actually exit process
+ * @s: formatting string for strings
+ * Return: 1 if it is 0 otherwise
  */
 int conversion_string(char *s)
 {
-	int i;
-	int dot_flag;
-
-	i = (*s == '%') ? 1 : 0;
-	dot_flag = 0;
-
-	while (*(s + i) != 's')
-	{
-		if ((_is_digit(*(s + i)) == 0 && *(s + i) != '.') ||
-		    (*(s + i) == '.' && dot_flag))
-		{
-			return (0);
-		}
-		if (_is_digit(*(s + i)) == 0 && *(s + i) == '.')
-			dot_flag = 1;
-			++i;
-		i++;
-	}
+	(void) s;
 	return (1);
 }

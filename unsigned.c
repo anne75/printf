@@ -14,52 +14,20 @@ int conversion_u(char *s)
 }
 
 
-
-/**
- * _utoa - transforms a number into a string
- * @n: an unsigned int
- * Return: a string
- */
-char *_utoa(unsigned int n)
-{
-	int l, i;
-	char *number;
-	unsigned int tens;
-
-	l = 1;
-	tens = n;
-	while (tens > 9)
-	{
-		tens /= 10;
-		l = l + 1;
-	}
-
-	number = malloc((l + 1) * sizeof(char));
-	i = l - 1;
-	number[l] = '\0';
-	do {
-		number[i] = (n % 10) + '0';
-		n /= 10;
-		--i;
-	} while (i >= 0 && n > 0);
-	return (number);
-}
-
-
-
 /**
  * make_unsigned - make an unsigned int
  * @s: a format string
  * @l: a va_list
- * Return: a pointer to the result
+ * @buf: a pointer to the buf_type structure
  */
-char *make_unsigned(char *s, va_list l)
+void make_unsigned(char *s, va_list l, buf_type *buf)
 {
 	unsigned int n;
 	char *result;
 	(void) s;
 	n = va_arg(l, unsigned int);
-	result = _utoa(n);
-	return (result);
+	result = base_conv(n, 10, "0123456789");
+	fill_buffer(buf, result, _strlen(result));
+	free(result);
 
 }

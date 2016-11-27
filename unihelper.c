@@ -4,15 +4,14 @@
 /**
  * no_conversion - checks if there is a conversion formatter
  * @c: character to check
- * Return: 1 if not conversion formmater, 0 if it is
+ * Return: 1 if not conversion formater, 0 if it is
  */
-
 int no_conversion(char c)
 {
-	char array[] = "csdiuoxXpb";
+	char array[] = "%csdiuoxXbS";
 	int i;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 11; i++)
 	{
 		if (c == array[i])
 			return (0);
