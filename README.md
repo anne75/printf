@@ -1,38 +1,39 @@
 ## _printf
 
-This is a printf function with the functionalities of printing characters (c), strings (s), % (%), octals(o), hexidecimals (x and X). We also a custom formatter binary (b).
+This is a printf function with the functionalities of printing characters (c), strings (s), % (%), octals(o), hexidecimals (x and X). We also have a custom formatter binary (b).
 
-print.c
+# Description of the files
+. print.c
 This is our file that contains our printf function. Also included is an error function that can return an error when called upon.
 Formatter files
 
 We created a file for each formatter. In each file, it should contain a make_formatter function that creates a string to fill in the buffer. Also included in each formatter file is a conversion check to see if we need to account for precision, width, or flag. If necessary, we also included a helper function to convert a number to a string.
-Formatter files:
-binary.c
-chars.c
-decimal.c
-hex.c
-heX.c
-octal.c
-strings.c
-unsigned.c
-percent.c
-bigS.c
+Formatter files:  
+. binary.c  
+. chars.c  
+. decimal.c  
+. hex.c  
+. heX.c  
+. octal.c  
+. strings.c  
+. unsigned.c  
+. percent.c  
+. bigS.c  
 
 Helper files
 We created helper files to put universal helper functions such at idigit, no_conversion, reverse_array. These functions are used multiple times throughout the files.
 Helper files:
-unihelper.c
+. unihelper.c
 is_digit
 no_conversion
 strlen
 isdflag
-unihelper2.c
+. unihelper2.c
 give_precision.c
 give_width.c
 get_result.c
-unihelper3.c
-numberhelper.c
+. unihelper3.c
+. numberhelper.c
 
 # Example:
 ```
