@@ -37,7 +37,6 @@ typedef struct valid
  * struct m_string -  valid format
  * @type: type of format
  * @make_s:make the string, fill the buffer
- * @buf: pointer to the buf_type structure
  */
 typedef struct m_string
 {
