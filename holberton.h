@@ -136,8 +136,4 @@ void make_S(char *s, va_list vl, buf_type *buf);
 
 
 
-
-
-
-
 #endif

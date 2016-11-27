@@ -52,5 +52,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	print_buffer(buf.buffer, buf.buf_index);
+	va_end(alist);
 	return (buf.count_c);
 }
