@@ -14,65 +14,21 @@ int conversion_h(char *s)
 }
 
 
-
-/**
- * hex - convert a number to an octal
- * @n: a number
- * Return: a number in octal
- */
-char *hex(unsigned int n)
-{
-	int i;
-	char s[16] = "0123456789abcdef";
-	char *ns;
-
-	i = 0;
-	ns = malloc(sizeof(char) * 100);
-	do {
-		ns[i++] = (s[n % 16]);
-		n = n / 16;
-	} while (n > 0);
-	reverse_array(ns, i);
-	ns[i] = '\0';
-	return (ns);
-}
-
 /**
  * make_hex - make an octal string
  * @s: a format string
  * @l: a va_list
+ * @buf: a pointer to the buffer structure
  * Return: a pointer to the result
  */
-char *make_hex(char *s, va_list l)
+void make_hex(char *s, va_list l, buf_type *buf)
 {
 	unsigned int n;
 	char *result;
 	(void) s;
+
 	n = va_arg(l, unsigned int);
-	result = hex(n);
-	return (result);
-}
-
-
-/**
- * reverse_array - reverss an array of integers
- * @a: array;
- * @n: number of elements in array
- */
-
-void reverse_array(char *a, int n)
-{
-	int i;
-	int temp;
-
-	i = 0;
-	n = n - 1;
-	while (i <= n)
-	{
-		temp = a[i];
-		a[i] = a[n];
-		a[n] = temp;
-		i++;
-		n--;
-	}
+	result = base_conv(n, 16, "0123456789abcdef");
+	fill_buffer(buf, result, _strlen(result));
+	free(result);
 }
