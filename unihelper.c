@@ -52,7 +52,6 @@ char *_strncpy(char *dest, const char *src, int n)
 	}
 	while (i < n) /*happens only if I am pasting a src shorter than n string*/
 	{
-		printf("UNI here ?, i = %i\n", i);
 		*(dest + i++) = '\0';
 	}
 	return (dest);
