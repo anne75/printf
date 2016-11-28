@@ -34,9 +34,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			conv = grab_format(format + i);
-/*grab_format grabs anything, hence is not null,
- *check if end char is legit or not
- */
+
 			l_conv = _strlen(conv);
 			if (no_conversion(conv[l_conv - 1]))
 			{
