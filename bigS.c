@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 
 /**
@@ -26,7 +25,7 @@ void convert_S(char *arg, buf_type *buf)
 	int i, l;
 	char nb[4] = {'\\', 'x', '0', '0'};
 
-	l = strlen(arg);
+	l = _strlen(arg);
 
 	for (i = 0; i < l; ++i)
 	{
