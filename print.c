@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			l_conv = _strlen(conv);
 			if (no_conversion(conv[l_conv - 1]))
 			{
-				make_no_conversion(conv, &buf);
+				;
 			}
 			else
 			{
