@@ -8,10 +8,17 @@
  */
 int no_conversion(char c)
 {
+<<<<<<< HEAD
 	char array[] = "%csdiuoxXbSr";
 	int i;
 
 	for (i = 0; i < 12; i++)
+=======
+	char array[] = "csdiuoxXpbr";
+	int i;
+
+	for (i = 0; i < 11; i++)
+>>>>>>> a01841304bde7bdefebe8c347e574470be8a647d
 	{
 		if (c == array[i])
 			return (0);
