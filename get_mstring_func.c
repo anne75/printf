@@ -21,21 +21,12 @@ void (*get_mstring_func(char c))(char *, va_list, buf_type *)
 		{'X', make_heX},
 		{'b', make_binary},
 		{'o', make_octal},
-<<<<<<< HEAD
 		{'S', make_S},
 		{'r', make_rev}
-=======
-		{'r', make_reverse}
->>>>>>> a01841304bde7bdefebe8c347e574470be8a647d
 	};
 	int i;
-	printf("FF");
 	i = 0;
-<<<<<<< HEAD
 	while (i < 12)
-=======
-	while (i < 11)
->>>>>>> a01841304bde7bdefebe8c347e574470be8a647d
 	{
 		if (c == v[i].type)
 			return (v[i].make_s);

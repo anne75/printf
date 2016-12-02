@@ -128,7 +128,6 @@ void reverse_array(char *a, int n);
 void make_heX(char *s, va_list vl, buf_type *buf);
 char *heX(unsigned int);
 
-<<<<<<< HEAD
 /*in bigS.c*/
 void _hexa(char n, char *nb);
 void convert_S(char *, buf_type *);
@@ -140,7 +139,6 @@ void rev_string(char *s);
 int conversion_r(char *s);
 void make_rev(char *s, va_list vl, buf_type *buf);
 char *_strdup(char *str);
-=======
 /* reverse */
 int conversion_r(char *s);
 char *make_reverse(char *s, va_list vl);
@@ -169,11 +167,4 @@ typedef struct m_string
 } m_string;
 
 
-
-
-
-
-
-
->>>>>>> a01841304bde7bdefebe8c347e574470be8a647d
 #endif
