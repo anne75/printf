@@ -140,4 +140,8 @@ int conversion_r(char *s);
 void make_rev(char *s, va_list vl, buf_type *buf);
 char *_strdup(char *str);
 
+/* rot13.c */
+int conversion_R(char *s);
+void make_rot13(char *s, va_list vl, buf_type *buf);
+char *rot13(char *s);
 #endif
