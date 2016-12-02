@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 
 
@@ -36,18 +37,20 @@ int _printf(const char *format, ...)
 			conv = grab_format(format + i);
 /*grab_format grabs anything, hence is not null,
  *check if end char is legit or not
+ *IMPORTANT: conv starts with %, and in some cases could be just '%'
+ *in that case we do not want a conversion, as end % does not exist
  */
 			l_conv = _strlen(conv);
-			if (no_conversion(conv[l_conv - 1]))
+			if (l_conv == 1 || no_conversion(conv[l_conv - 1]))
 			{
 				make_no_conversion(conv, &buf);
 			}
 			else
 			{
 				get_mstring_func(conv[l_conv - 1])(conv, alist, &buf);
-				free(conv);
 			}
-				i += l_conv;
+			free(conv);
+			i += l_conv;
 		}
 	}
 	print_buffer(buf.buffer, buf.buf_index);

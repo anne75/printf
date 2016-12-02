@@ -19,6 +19,9 @@ void make_no_conversion(char *conv, buf_type *buf)
 	i = 0;
 	l_conv = _strlen(conv);
 	flag_space = 0;
+/*if conv consists just of '%' or '%   ' do not print anything*/
+	if (*(conv + l_conv - 1) == '%' || *(conv + l_conv - 1) == ' ')
+		return;
 	while (i < l_conv)
 	{
 		if (*(conv + i) == ' ' && !flag_space)
