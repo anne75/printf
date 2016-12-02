@@ -4,8 +4,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-
-
 /**
  * _printf - trying to make printf
  * @format: format of string
@@ -48,6 +46,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				get_mstring_func(conv[l_conv - 1])(conv, alist, &buf);
+				free(conv);
 			}
 			free(conv);
 			i += l_conv;

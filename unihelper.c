@@ -8,10 +8,10 @@
  */
 int no_conversion(char c)
 {
-	char array[] = "%csdiuoxXbS";
+	char array[] = "%csdiuoxXbSr";
 	int i;
 
-	for (i = 0; i < 11; i++)
+	for (i = 0; i < 12; i++)
 	{
 		if (c == array[i])
 			return (0);
