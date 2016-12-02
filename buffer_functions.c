@@ -61,10 +61,15 @@ buf_type *fill_buffer(buf_type *buf, const char *s, int s_length)
  */
 buf_type *fill_char_buffer(buf_type *buf, char c)
 {
-	char s[1] = {c};
 
-	fill_buffer(buf, s, 1);
-
+	if (buf->buf_index == BUF_LENGTH)
+	{
+		print_buffer(buf->buffer, BUF_LENGTH);
+		_flush(buf->buffer);
+		buf->buf_index = 0;
+	}
+	buf->buffer[buf->buf_index++] = c;
+	++buf->count_c;
 	return (buf);
 }
 
