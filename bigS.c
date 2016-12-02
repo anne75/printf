@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 
 /**
@@ -37,6 +36,8 @@ void convert_S(char *arg, buf_type *buf)
 		{
 			_hexa(*(arg + i), nb);
 			fill_buffer(buf, nb, 4);
+			nb[2] = '0'; /*reset this value for next call*/
+
 		}
 	}
 }
