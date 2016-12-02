@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include <stdio.h>
 
 
 /**
@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				get_mstring_func(conv[l_conv - 1])(conv, alist, &buf);
+				printf("conv is %s\n", conv);
 				free(conv);
 			}
 				i += l_conv;

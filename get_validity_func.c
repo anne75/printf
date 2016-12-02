@@ -10,6 +10,7 @@
 
 int (*get_validity_func(char c))(char *)
 {
+	printf("HI IM HERE\n");
 	valid v[] = {
 		{'c', conversion_char},
 		{'s', conversion_string},
@@ -21,12 +22,13 @@ int (*get_validity_func(char c))(char *)
 		{'X', conversion_h},
 		{'b', conversion_b},
 		{'o', conversion_o},
-		{'S', conversion_S}
+		{'S', conversion_S},
+		{'r', conversion_r}
 	};
 	int i;
 
 	i = 0;
-	while (i < 11)
+	while (i < 12)
 	{
 		if (c == v[i].type)
 			return (v[i].conversion_check);

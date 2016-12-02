@@ -21,12 +21,13 @@ void (*get_mstring_func(char c))(char *, va_list, buf_type *)
 		{'X', make_heX},
 		{'b', make_binary},
 		{'o', make_octal},
-		{'S', make_S}
+		{'S', make_S},
+		{'r', make_rev}
 	};
 	int i;
 
 	i = 0;
-	while (i < 11)
+	while (i < 12)
 	{
 		if (c == v[i].type)
 			return (v[i].make_s);

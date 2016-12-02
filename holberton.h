@@ -134,6 +134,9 @@ void convert_S(char *, buf_type *);
 int conversion_S(char *s);
 void make_S(char *s, va_list vl, buf_type *buf);
 
-
-
+/* reverse.c */
+void rev_string(char *s);
+int conversion_r(char *s);
+void make_rev(char *s, va_list vl, buf_type *buf);
+char *_strdup(char *str);
 #endif
