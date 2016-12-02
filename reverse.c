@@ -27,8 +27,6 @@ void make_rev(char *s, va_list vl, buf_type *buf)
 {
 	char *result;
 	(void) s;
-	int i, len;
-	char temp, temp2;
 
 	result = _strdup(va_arg(vl, char *));
 	if (result == NULL)
