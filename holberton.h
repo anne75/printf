@@ -139,32 +139,5 @@ void rev_string(char *s);
 int conversion_r(char *s);
 void make_rev(char *s, va_list vl, buf_type *buf);
 char *_strdup(char *str);
-/* reverse */
-int conversion_r(char *s);
-char *make_reverse(char *s, va_list vl);
-char *reverse(char *s);
-/*structs*/
-/**
- * struct valid - check if formatting is valid
- * @type: type
- * @conversion_check:function to check if a conversion string is valid
- */
-typedef struct valid
-{
-	char type;
-	int (*conversion_check)(char *);
-} valid;
-
-/**
- * struct m_string -  valid format
- * @type: type of format
- * @make_s:make the string
- */
-typedef struct m_string
-{
-	char type;
-	char *(*make_s)(char *, va_list);
-} m_string;
-
 
 #endif
